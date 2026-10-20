@@ -24,6 +24,7 @@ def check_winner(player_positions: list[int], player: str):
             return True
     return False
 
+
 def player_inputs():
     player1_input = int(input("Player 1, please enter number (1-9): "))
     if player1_input > 0 and player1_input < 10 and type(grid[int(player1_input) - 1]) != str:
@@ -50,7 +51,7 @@ def player_inputs():
 
 while player1_winner == False and player2_winner == False:
     player_inputs()
-
+    
 
 
 
