@@ -25,7 +25,7 @@ def check_winner(player_positions: list[int], player: str):
     return False
 
 
-def player_inputs(player: str):
+def player_inputs():
     loop_player1 = False
     loop_player2 = False
     while loop_player1 == False: 
@@ -57,8 +57,7 @@ def player_inputs(player: str):
 
 
 while player1_winner == False and player2_winner == False:
-    player_inputs(player1)
-    player
+    player_inputs()
     
 
 
