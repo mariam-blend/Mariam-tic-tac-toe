@@ -26,27 +26,34 @@ def check_winner(player_positions: list[int], player: str):
 
 
 def player_inputs():
-    player1_input = int(input("Player 1, please enter number (1-9): "))
-    if player1_input > 0 and player1_input < 10 and type(grid[int(player1_input) - 1]) != str:
-        player1_positions.append(player1_input)
-        grid[int(player1_input) - 1] = "X"
-        print_grid()
-        global player1_winner
-        player1_winner = check_winner(player1_positions, "Player 1")
-        if player1_winner == True:
-            return
-    else:
-        print("Not a valid Number or Postion is already taken")
+    loop_player1 = False
+    loop_player2 = False
+    while loop_player1 == False: 
+        player1_input = int(input("Player 1, please enter number (1-9): "))
+        if player1_input > 0 and player1_input < 10 and type(grid[int(player1_input) - 1]) != str:
+            player1_positions.append(player1_input)
+            grid[int(player1_input) - 1] = "X"
+            print_grid()
+            global player1_winner
+            player1_winner = check_winner(player1_positions, "Player 1")
+            loop_player1 = True
+            if player1_winner == True:
+                return
+        else:
+            print("Not a valid Number or Postion is already taken")
 
-    player2_input = int(input("Player 2, please enter number (1-9): "))
-    if player2_input > 0 and player2_input < 10 and type(grid[int(player2_input) - 1]) != str:
-        player2_positions.append(player2_input)
-        grid[int(player2_input) - 1] = "O"
-        print_grid()
-        global player2_winner
-        player2_winner = check_winner(player2_positions, "Player 2")
-    else:
-        print("Not a valid Number or Postion is already taken")
+            
+    while loop_player2 == False:
+        player2_input = int(input("Player 2, please enter number (1-9): "))
+        if player2_input > 0 and player2_input < 10 and type(grid[int(player2_input) - 1]) != str:
+            player2_positions.append(player2_input)
+            grid[int(player2_input) - 1] = "O"
+            print_grid()
+            global player2_winner
+            loop_player2 = True
+            player2_winner = check_winner(player2_positions, "Player 2")
+        else:
+            print("Not a valid Number or Postion is already taken")
 
 
 while player1_winner == False and player2_winner == False:
