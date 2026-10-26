@@ -27,6 +27,9 @@ def check_inputs(player_input: int):
     return int(player_input) > 0 and player_input < 10 and type(grid[int(player_input) - 1]) != str
 
 
+
+
+
 def player_inputs(player: str, player_positions: list[int], symbol: str):
     loop_player = False
     valid_input = False
@@ -40,9 +43,12 @@ def player_inputs(player: str, player_positions: list[int], symbol: str):
             global winner
             winner = check_winner(player_positions, player)   
             loop_player = True
+
+
         
         else:
             print("Not a valid Number or Postion is already taken")
+
 
 
 while winner == False:
@@ -50,9 +56,6 @@ while winner == False:
     if winner == True:
         break
     player_inputs('Player 2', player2_positions, 'O')
-    if winner == True:
-        break
-    
 
 
 
